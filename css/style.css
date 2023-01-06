@@ -1,26 +1,33 @@
 body {
   margin: 0;
   padding: 0;
-  min-height: 100vh;
+  min-height: 200vh;
   background-color: rgb(57, 56, 55);
+  overflow-x: hidden;
 }
 
 .flex-item {
-  width: 10em;
-  height: 10em;
+  width: 7em;
+  height: 7em;
   background-color: rgb(0, 0, 0);
   border: 2px solid white;
   color: white;
   text-align: center;
-  line-height: 10em;
+  line-height: 7em;
 }
 
 .flex-practice-container {
+  width: 50%;
+  margin: 0 auto;
   display: flex;
   flex-direction: row;
   padding: 1em;
   height: 50vh;
   border: 1px solid white;
+  gap: 1em;
+  row-gap: 1em;
+  -moz-column-gap: 1em;
+       column-gap: 1em;
   align-items: center;
   justify-content: space-evenly;
   flex-wrap: wrap;
@@ -35,7 +42,92 @@ body {
 
 .third {
   align-self: flex-end;
-  flex-grow: 2;
+  flex-grow: 3;
   flex-shrink: 1;
   order: -2;
+}
+
+.theoretical-element {
+  width: 3em;
+  height: 3rem;
+}
+
+.text-description {
+  max-width: 60ch;
+}
+
+.sticky-element {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 6px;
+  width: 30%;
+  height: 30%;
+}
+
+html {
+  font-size: 16px;
+}
+
+@media screen and (min-width: 320px) {
+  html {
+    font-size: calc(16px + 6 * (100vw - 320px) / 680);
+  }
+}
+@media screen and (min-width: 1000px) {
+  html {
+    font-size: 22px;
+  }
+}
+.grid-container {
+  margin: 0 auto;
+  margin-top: 4rem;
+  width: 80%;
+  min-height: 400px;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(100px, 1fr));
+  grid-template-rows: repeat(5, 1fr);
+  grid-template-areas: "header header header header header" "aside main main main main" "aside main main main main" "aside main main main main" "footer footer footer footer footer";
+  place-items: center;
+  grid-auto-flow: column;
+  grid-auto-columns: 2fr;
+  grid-auto-rows: 2fr;
+}
+
+.element1 {
+  background-color: wheat;
+  width: 100%;
+  height: 100%;
+  grid-area: header;
+}
+
+.element2 {
+  background-color: azure;
+  width: 100%;
+  height: 100%;
+  grid-area: aside;
+}
+
+.element3 {
+  width: 70%;
+  background-color: black;
+  grid-area: footer;
+  justify-self: start;
+  align-self: stretch;
+}
+
+.grid-container-resp {
+  margin: 0 auto;
+  margin-top: 4rem;
+  width: 80%;
+  min-height: 400px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  grid-template-rows: repeat(5, 1fr);
+  place-items: center;
+  grid-gap: 1rem;
+}
+.grid-container-resp .element {
+  background-color: antiquewhite;
+  width: 100%;
+  height: 100%;
 }/*# sourceMappingURL=style.css.map */
